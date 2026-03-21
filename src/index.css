@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 220 25% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 12%;
+
+    --primary: 174 72% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 200 18% 33%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 20% 94%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 186 33% 80%;
+    --accent-foreground: 220 25% 12%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 20% 88%;
+    --input: 214 20% 88%;
+    --ring: 174 72% 40%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 25% 12%;
+    --sidebar-primary: 174 72% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 20% 94%;
+    --sidebar-accent-foreground: 220 25% 12%;
+    --sidebar-border: 214 20% 88%;
+    --sidebar-ring: 174 72% 40%;
+
+    /* Custom tokens */
+    --hero-gradient: linear-gradient(135deg, hsl(210, 20%, 96%) 0%, hsl(210, 15%, 90%) 100%);
+    --glass-bg: hsla(0, 0%, 100%, 0.85);
+    --glass-border: hsla(174, 72%, 40%, 0.2);
+    --glow-primary: 0 8px 30px hsla(174, 72%, 40%, 0.2);
+    --glow-strong: 0 12px 40px hsla(174, 72%, 40%, 0.35);
+    --text-body: hsl(220, 15%, 35%);
+    --text-muted-custom: hsl(215, 16%, 55%);
+    --surface-dark: hsl(200, 18%, 33%);
+    --surface-card: hsl(0, 0%, 100%);
+    --section-alt: hsl(210, 20%, 96%);
+
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 240 20% 97%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Animations */
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 0 0 hsla(174, 72%, 40%, 0.4); }
+  70% { box-shadow: 0 0 0 16px hsla(174, 72%, 40%, 0); }
+  100% { box-shadow: 0 0 0 0 hsla(174, 72%, 40%, 0); }
+}
+
+@keyframes float-orb {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(60px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in-scale {
+  from { opacity: 0; transform: scale(0.95) translateY(15px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse-line {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+@keyframes progress-bar {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bounce-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2.8s infinite;
+}
+
+.animate-float-orb {
+  animation: float-orb 18s ease-in-out infinite;
+}
+
+.animate-float-orb-reverse {
+  animation: float-orb 22s ease-in-out infinite reverse;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.8s ease forwards;
+}
+
+.animate-fade-in-scale {
+  animation: fade-in-scale 0.6s ease forwards;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.7s ease forwards;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.7s ease forwards;
+}
+
+.animate-pulse-line {
+  animation: pulse-line 2.8s ease-in-out infinite;
+}
+
+.animate-progress-bar {
+  animation: progress-bar 25s linear infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 3s ease-in-out infinite;
+}
+
+/* Scroll reveal base */
+.scroll-hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.scroll-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-hidden-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.scroll-visible-left {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-hidden-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.scroll-visible-right {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-hidden-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scroll-visible-scale {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Hover effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px hsla(174, 72%, 40%, 0.15);
+}
+
+.hover-glow {
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 30px hsla(174, 72%, 40%, 0.25);
+}
+
+/* Underline animation for links */
+.story-link {
+  @apply relative inline-block;
+}
+
+.story-link::after {
+  content: '';
+  @apply absolute w-full h-0.5 bottom-0 left-0 bg-primary origin-bottom-right transition-transform duration-300;
+  transform: scaleX(0);
+}
+
+.story-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 3px;
+}
