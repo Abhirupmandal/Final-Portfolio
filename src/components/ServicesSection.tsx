@@ -12,11 +12,11 @@ const ServicesSection = () => {
   const Icon = s.icon;
 
   return (
-    <section id="services" className="px-[5%] md:px-[8%] py-28 relative overflow-hidden">
+    <section id="services" className="px-[5%] md:px-[8%] py-28 relative">
       <div className="absolute w-[420px] h-[420px] rounded-full bg-primary/20 blur-[160px] opacity-30 -top-[120px] -left-[120px] animate-float-orb pointer-events-none" />
       <div className="absolute w-[420px] h-[420px] rounded-full bg-accent/30 blur-[160px] opacity-30 -bottom-[140px] -right-[140px] animate-float-orb-reverse pointer-events-none" />
 
-      <div ref={ref} className={`relative z-10 scroll-hidden ${isVisible ? "scroll-visible" : ""}`}>
+      <div ref={ref} className={`relative z-10 scroll-hidden ${isVisible ? "scroll-visible" : "opacity-100 md:opacity-0"}`}>
         <h2 className="text-3xl md:text-4xl text-foreground">Advisory Engagements</h2>
         <p className="max-w-[760px] mt-3 text-[var(--text-body)] leading-relaxed text-base md:text-lg">
           The Coaching Lab is designed as a structured executive development environment.

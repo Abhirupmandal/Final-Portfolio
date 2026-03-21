@@ -45,8 +45,8 @@ const ContactSection = () => {
   const inputClass = "mt-1.5 w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground text-sm focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-300";
 
   return (
-    <section id="contact" className="px-[5%] md:px-[8%] py-28">
-      <div ref={ref} className={`max-w-[980px] mx-auto scroll-hidden ${isVisible ? "scroll-visible" : ""}`}>
+    <section id="contact" className="px-[5%] md:px-[8%] py-28 relative">
+      <div ref={ref} className={`max-w-[980px] mx-auto ${isVisible ? "animate-fade-up" : "opacity-100 md:opacity-0"}`}>
         <div className="text-center mb-12">
           <span className="text-primary tracking-[3px] text-xs font-mono">BEGIN THE CONVERSATION</span>
           <h2 className="text-3xl md:text-4xl mt-3 text-foreground">A thoughtful place to <span className="text-primary">start</span></h2>

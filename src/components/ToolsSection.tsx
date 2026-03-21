@@ -7,8 +7,8 @@ const ToolsSection = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="tools" className="px-[5%] md:px-[8%] py-28 bg-[var(--section-alt)]">
-      <div ref={ref} className={`scroll-hidden ${isVisible ? "scroll-visible" : ""}`}>
+    <section id="tools" className="px-[5%] md:px-[8%] py-32 md:py-40 bg-[var(--section-alt)] relative">
+      <div ref={ref} className={`${isVisible ? "scroll-visible" : "opacity-100 md:opacity-0"}`}>
         <div className="text-center mb-14">
           <span className="text-primary tracking-[3px] text-xs font-mono">THINKING ROOM</span>
           <h2 className="text-3xl md:text-4xl mt-3 text-foreground">Strategic Thinking Lab</h2>
@@ -23,13 +23,13 @@ const ToolsSection = () => {
             return (
               <motion.div
                 key={tool.title}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 1, y: 0 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
+                viewport={{ once: true, margin: "0px" }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="group sticky w-full mb-[5vh] md:mb-[10vh] origin-top"
+                className="group sticky w-full mb-20 md:mb-[25vh] top-[80px] md:top-[120px] origin-top"
                 style={{
-                  top: `calc(85px + ${i * 20}px)`,
+                  top: `calc(90px + ${i * 25}px)`,
                   zIndex: 10 + i,
                 }}
               >
