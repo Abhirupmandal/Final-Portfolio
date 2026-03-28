@@ -41,7 +41,7 @@ const LeadershipTest = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex justify-center items-center p-6 relative overflow-x-hidden bg-gradient-to-br from-primary/5 via-background to-accent/10">
+    <div className="min-h-screen flex justify-center items-center p-6 relative overflow-x-clip bg-gradient-to-br from-primary/5 via-background to-accent/10">
       <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
         <div className="absolute w-[500px] h-[500px] rounded-full bg-primary/15 blur-[160px] opacity-60 -top-[150px] -left-[100px] animate-float-orb" />
         <div className="absolute w-[500px] h-[500px] rounded-full bg-accent/20 blur-[160px] opacity-60 -bottom-[180px] -right-[100px] animate-float-orb-reverse" />

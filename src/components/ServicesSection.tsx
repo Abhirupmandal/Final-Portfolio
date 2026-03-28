@@ -54,14 +54,16 @@ const ServicesSection = () => {
               transition={{ duration: 0.35 }}
               className="bg-card backdrop-blur-xl p-7 md:p-10 rounded-3xl border border-border shadow-lg"
             >
-              <div className="w-full h-[200px] md:h-[240px] rounded-2xl overflow-hidden shadow-md border border-border mb-6">
-                <img
-                  src={s.image}
-                  alt={s.title}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                  loading="lazy"
-                />
-              </div>
+              {/* ✅ ONLY CHANGED PART */}
+            <div className="w-full rounded-2xl overflow-hidden shadow-md border border-border mb-6 bg-black/5 flex items-center justify-center">
+  <img
+    src={s.image}
+    alt={s.title}
+  className="w-full h-full object-cover object-[center_60%] transition-transform duration-700 hover:scale-105"         
+    loading="lazy"
+  />
+</div>
+
               <div className="flex items-center gap-3 mb-3">
                 <Icon className="w-6 h-6 text-primary" />
                 <h3 className="text-xl md:text-2xl text-foreground">{s.title}</h3>

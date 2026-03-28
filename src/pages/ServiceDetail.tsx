@@ -50,7 +50,7 @@ const ServiceDetail = () => {
   const Icon = service.icon;
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-background">
+    <div className="min-h-screen overflow-x-clip bg-background">
       {/* Dynamic Background Effects */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
         <div className="absolute w-[600px] h-[600px] rounded-full bg-primary/10 blur-[180px] -top-[200px] -left-[200px] animate-float-orb" />

@@ -28,6 +28,7 @@ export type ToolData = {
   desc: string;
   points: string[];
   icon: any;
+  image?: string; // path relative to /public, e.g. "/blind-spot.jpg"
   type: "diagnostic" | "dialogue";
   questions?: Question[];
   graphType?: "Radar Chart" | "Bar Chart" | "Score Indicators" | "2-axis map" | "Cycle Diagram" | "Score Meter" | "Scale";
@@ -42,6 +43,7 @@ export const coachingLabData: ToolData[] = [
     desc: "Identify unnoticed behavioural patterns and communication gaps that may be limiting your professional growth and influence.",
     points: ["Hidden performance gaps", "Perception vs reality analysis", "Communication blind zones"],
     icon: Eye,
+    image: "/src/assets/blind-spot.webp", // 🖼️ Replace with your actual image filename
     type: "diagnostic",
     graphType: "Radar Chart",
     questions: [
@@ -67,26 +69,7 @@ export const coachingLabData: ToolData[] = [
       question: "If you completely removed the fear of being disliked by your team today, what specific directive would you issue tomorrow morning?"
     }
   },
-  {
-    id: "chat-with-coach",
-    tag: "DIALOGUE",
-    title: "Chat with Coach",
-    desc: "A focused clarity channel to think through decisions, career moves, and leadership challenges in real time.",
-    points: ["Real-time advisory sessions", "Structured thinking prompts", "Confidential thought space"],
-    icon: MessageCircle,
-    type: "dialogue",
-    graphType: "Score Indicators",
-    reportConfig: {
-      insight: "Your real-time cognitive processing shows a tendency to over-analyze systemic problems rather than isolating the singular variable that controls the outcome.",
-      weaknesses: [
-        "Getting lost in hypothetical 'what-if' scenarios.",
-        "Treating simple decisions as complex structural dilemmas.",
-        "Hesitating to pull the trigger without 100% consensus."
-      ],
-      shift: "Move from 'seeking perfect information' to 'acting on sufficient probability'. Accept that leadership requires operating in the dark.",
-      question: "What is the single most important decision you are currently avoiding by seeking more data?"
-    }
-  },
+  
   {
     id: "leadership-pattern-audit",
     tag: "LEADERSHIP",
@@ -94,6 +77,7 @@ export const coachingLabData: ToolData[] = [
     desc: "Examine how you lead under pressure and identify patterns that influence team performance and outcomes.",
     points: ["Decision behavior under stress", "Control vs trust dynamics", "Leadership bias detection"],
     icon: Activity,
+    image: "/src/assets/leadership.jpg", // 🖼️ Replace with your actual image filename
     type: "diagnostic",
     graphType: "Bar Chart",
     questions: [
@@ -126,6 +110,7 @@ export const coachingLabData: ToolData[] = [
     desc: "Break down complex choices and uncover the real trade-offs driving hesitation and indecision.",
     points: ["Trade-off mapping", "Risk vs reward clarity", "Hidden hesitation triggers"],
     icon: Compass,
+    image: "/src/assets/decision.jpg", // 🖼️ Replace with your actual image filename
     type: "diagnostic",
     graphType: "2-axis map",
     questions: [
@@ -158,6 +143,7 @@ export const coachingLabData: ToolData[] = [
     desc: "Assess whether your current path aligns with how you naturally think, work, and perform.",
     points: ["Role and environment fit", "Growth vs stability alignment", "Energy pattern analysis"],
     icon: Target,
+    image: "/src/assets/career_direction.png", // 🖼️ Replace with your actual image filename
     type: "diagnostic",
     graphType: "Bar Chart",
     questions: [
@@ -190,6 +176,7 @@ export const coachingLabData: ToolData[] = [
     desc: "Identify recurring behavioral loops that shape your outcomes and limit consistent progress.",
     points: ["Trigger → action cycles", "Habit loop breakdown", "Pattern interruption points"],
     icon: Repeat,
+   image: "/src/assets/behavior.avif", // 🖼️ Replace with your actual image filename
     type: "diagnostic",
     graphType: "Cycle Diagram",
     questions: [
@@ -222,6 +209,7 @@ export const coachingLabData: ToolData[] = [
     desc: "Reveal the gap between what you say you want and how you actually behave.",
     points: ["Intent vs action gap", "Avoidance patterns", "Internal contradiction insights"],
     icon: UserCircle,
+    image: "/src/assets/Self_Perception_Mirror.avif", // 🖼️ Replace with your actual image filename
     type: "diagnostic",
     graphType: "Score Meter",
     questions: [
@@ -254,7 +242,8 @@ export const coachingLabData: ToolData[] = [
     desc: "Challenge assumptions that quietly restrict your decisions and performance.",
     points: ["Belief origin analysis", "Evidence vs assumption", "Cognitive reframing"],
     icon: Unlock,
-    type: "diagnostic",
+image: "/src/assets/limiting_beliefs.webp",
+      type: "diagnostic",
     graphType: "Scale",
     questions: [
       { q: "Which implicit belief limits your delegation the most?", opts: ["'If I don't do it, it won't meet the standard.'", "'It takes longer to explain it than to just do it.'", "'If my team does everything, what is my value?'", "'None. I delegate effectively without emotional friction.'"] },

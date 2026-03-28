@@ -27,22 +27,32 @@ const ToolsSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "0px" }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="group sticky w-full mb-20 md:mb-[25vh] top-[80px] md:top-[120px] origin-top"
+                className="group sticky-card sticky w-full mb-8 md:mb-[25vh] origin-top"
                 style={{
-                  top: `calc(90px + ${i * 25}px)`,
+                  '--i': i,
                   zIndex: 10 + i,
-                }}
+                } as React.CSSProperties}
               >
                 <div className="grid grid-cols-1 md:grid-cols-[340px_1fr] gap-0 bg-card rounded-[2rem] border border-border shadow-[0_-10px_40px_-10px_rgba(0,0,0,0.1)] overflow-hidden transition-all duration-500">
-                  {/* Image placeholder */}
-                  <div className="h-[200px] md:h-full min-h-[240px] bg-gradient-to-br from-secondary/20 via-primary/10 to-accent/20 flex items-center justify-center relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-secondary/30 to-primary/10" />
-                    <Icon className="w-16 h-16 text-primary/40 relative z-10 group-hover:scale-110 transition-transform duration-500" />
-                    <div className="absolute bottom-3 left-3 text-[10px] font-mono text-muted-foreground/50 tracking-wider">IMAGE PLACEHOLDER</div>
+                  {/* Tool Image */}
+                  <div className="h-[140px] md:h-full md:min-h-[240px] bg-gradient-to-br from-secondary/20 via-primary/10 to-accent/20 flex items-center justify-center relative overflow-hidden">
+                    {tool.image ? (
+                      <img
+                        src={tool.image}
+                        alt={tool.title}
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    ) : (
+                      <>
+                        <div className="absolute inset-0 bg-gradient-to-br from-secondary/30 to-primary/10" />
+                        <Icon className="w-16 h-16 text-primary/40 relative z-10 group-hover:scale-110 transition-transform duration-500" />
+                        <div className="absolute bottom-3 left-3 text-[10px] font-mono text-muted-foreground/50 tracking-wider">IMAGE PLACEHOLDER</div>
+                      </>
+                    )}
                   </div>
 
                   {/* Details */}
-                  <div className="p-6 sm:p-8 md:p-10 flex flex-col justify-center">
+                  <div className="p-5 sm:p-6 md:p-10 flex flex-col justify-center">
                     <span className="text-primary tracking-[2px] text-[10px] font-mono mb-2">{tool.tag}</span>
                     <h3 className="text-lg md:text-2xl text-foreground font-semibold">{tool.title}</h3>
                     <p className="mt-2 text-[var(--text-body)] text-xs sm:text-sm md:text-base leading-relaxed">{tool.desc}</p>

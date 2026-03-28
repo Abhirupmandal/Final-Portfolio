@@ -25,16 +25,44 @@ const Navbar = () => {
 
   useEffect(() => {
     if (location.pathname !== "/") return;
-    const sections = document.querySelectorAll("section[id]");
+    
+    // Set to keep track of all currently intersecting sections
+    const visibleSections = new Set<string>();
+    // DOM order
+    const sectionOrder = ["home", "about", "services", "tools", "contact"];
+
     const observer = new IntersectionObserver(
       (entries) => {
+        let changed = false;
         entries.forEach((entry) => {
-          if (entry.isIntersecting) setActiveSection(entry.target.id);
+          if (entry.isIntersecting) {
+            visibleSections.add(entry.target.id);
+            changed = true;
+          } else {
+            if (visibleSections.has(entry.target.id)) {
+              visibleSections.delete(entry.target.id);
+              changed = true;
+            }
+          }
         });
+
+        if (changed && visibleSections.size > 0) {
+          // Find the active section by looking backwards through the order (lowest in DOM wins if overlapping) 
+          for (let i = sectionOrder.length - 1; i >= 0; i--) {
+            if (visibleSections.has(sectionOrder[i])) {
+              setActiveSection(sectionOrder[i]);
+              break;
+            }
+          }
+        }
       },
-      { threshold: 0.15, rootMargin: "-70px 0px -30% 0px" }
+      // Trigger intersection when any part of the section enters the middle 40% of the viewport. This safely catches very tall sections.
+      { threshold: 0, rootMargin: "-30% 0px -30% 0px" }
     );
+
+    const sections = document.querySelectorAll("section[id]");
     sections.forEach((s) => observer.observe(s));
+    
     return () => observer.disconnect();
   }, [location.pathname]);
 
@@ -42,6 +70,7 @@ const Navbar = () => {
     setMobileOpen(false);
     if (href.startsWith("/#")) {
       const id = href.replace("/#", "");
+      setActiveSection(id); // Manual update for immediate feedback
       if (location.pathname !== "/") {
         window.location.href = href;
       } else {

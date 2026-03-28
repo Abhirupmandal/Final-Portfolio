@@ -54,7 +54,7 @@ const Testimonials = () => {
   const allCards = [...testimonials, ...testimonials];
 
   return (
-    <div className="min-h-screen overflow-x-hidden relative">
+    <div className="min-h-screen overflow-x-clip relative">
       <Link to="/#profile-extensions" className="fixed top-6 left-5 md:left-7 z-50 text-primary text-sm font-mono px-3 py-2 rounded-xl bg-card/90 backdrop-blur-lg border border-primary/20 shadow-md hover:translate-y-[-2px] transition-all duration-300 no-underline">
         ← Back to About Me
       </Link>
