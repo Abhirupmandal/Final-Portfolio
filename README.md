@@ -32,9 +32,15 @@ cd <YOUR_PROJECT_NAME>
 # Step 3: Install the necessary dependencies.
 npm i
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Step 4: Set up environment variables.
+cp .env.example .env
+# Edit .env and add your API keys (see CONFIGURATION.md for details).
+
+# Step 5: Start the development server with auto-reloading and an instant preview.
 npm run dev
 ```
+
+> **Environment Variables:** This project requires certain environment variables to enable all features (e.g., the Coach Dinesh AI chatbot). See [CONFIGURATION.md](./CONFIGURATION.md) for the full setup guide, including deployment configuration.
 
 **Edit a file directly in GitHub**
 
